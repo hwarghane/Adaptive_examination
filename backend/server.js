@@ -7,19 +7,25 @@ connectDB();
 
 const app = express();
 
-// Allow localhost (dev) + Vercel (prod) + any custom domain
+// Allow localhost (dev) + all Vercel deployments (prod)
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://127.0.0.1:5173',
+  'https://adaptive-examination-7zyr3ktrv-hwarghanes-projects.vercel.app',
+  'https://adaptive-examination.vercel.app',
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, Postman, etc.)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+    // Allow any vercel.app subdomain OR exact matches
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.onrender.com')
+    ) {
       return callback(null, true);
     }
     return callback(new Error('Not allowed by CORS'));
