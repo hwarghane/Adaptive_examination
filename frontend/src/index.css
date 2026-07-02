@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans antialiased;
+  }
+  h1, h2, h3, h4 { @apply font-semibold; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  .input-field {
+    @apply w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Rich text content display */
+.rich-content p { margin: 0 0 0.25em; }
+.rich-content p:last-child { margin-bottom: 0; }
+.rich-content strong { font-weight: 600; }
+.rich-content em { font-style: italic; }
+.rich-content u { text-decoration: underline; }
+.rich-content s { text-decoration: line-through; }
+.rich-content ul { list-style: disc; padding-left: 1.25em; margin: 0.25em 0; }
+.rich-content ol { list-style: decimal; padding-left: 1.25em; margin: 0.25em 0; }
+.rich-content li { margin-bottom: 0.1em; }
+.rich-content sub { vertical-align: sub; font-size: 0.75em; }
+.rich-content sup { vertical-align: super; font-size: 0.75em; }
+.rich-content code { background: #f1f5f9; padding: 0.1em 0.3em; border-radius: 3px; font-family: monospace; font-size: 0.9em; }
+.rich-content pre { background: #1e293b; color: #e2e8f0; padding: 0.75em 1em; border-radius: 6px; overflow-x: auto; margin: 0.5em 0; }
+.rich-content blockquote { border-left: 3px solid #3b82f6; padding-left: 0.75em; color: #64748b; margin: 0.5em 0; }
+.rich-content img { max-width: 100%; border-radius: 6px; }
+.rich-content a { color: #2563eb; text-decoration: underline; }
+.rich-content h1,.rich-content h2,.rich-content h3 { font-weight: 600; margin: 0.5em 0 0.25em; }
